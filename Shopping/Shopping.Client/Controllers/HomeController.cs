@@ -24,10 +24,19 @@ namespace Shopping.Client.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var response = await _httpClient.GetAsync("/product");
-            var content = await response.Content.ReadAsStringAsync();
-            var productList = JsonConvert.DeserializeObject<IEnumerable<Product>>(content);
-
+            //var response = await _httpClient.GetAsync("/product");
+            //var content = await response.Content.ReadAsStringAsync();
+            //var productList = JsonConvert.DeserializeObject<IEnumerable<Product>>(content);
+            var productList = new List<Product> {
+            new Product()
+            {
+                Name = "IPhone X",
+                Description= "ThisPhone",
+                ImageFile = "product-1.png",
+                Price = 950.00M,
+                Category = "Smart Phone",
+            }
+            };
             return View(productList);
         }
 
